@@ -1,0 +1,15 @@
+{
+  "name": "SummitPost — Social Studio",
+  "short_name": "SummitPost",
+  "description": "One command to write, illustrate, score and publish social posts across seven networks.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#05080f",
+  "theme_color": "#05080f",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/pwa-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/pwa-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

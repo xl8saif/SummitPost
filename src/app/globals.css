@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --mint: #34d399;
+  --sky: #38bdf8;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+html, body { min-height: 100%; }
+
+body {
+  background:
+    radial-gradient(1100px 620px at 12% -12%, rgba(52, 211, 153, 0.16), transparent 62%),
+    radial-gradient(900px 520px at 98% -4%, rgba(56, 189, 248, 0.15), transparent 58%),
+    radial-gradient(800px 700px at 50% 110%, rgba(251, 191, 36, 0.06), transparent 60%),
+    #05080f;
+  color: #e8eef7;
+  font-feature-settings: 'ss01' on, 'cv11' on;
+}
+
+::selection { background: rgba(52, 211, 153, 0.3); }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.14); border-radius: 999px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.pb-safe { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.5rem); }
+.pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+
+@layer components {
+  .card {
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+    box-shadow: 0 24px 60px -40px rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(18px);
+  }
+
+  .card-tight {
+    border-radius: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.9rem;
+    padding: 0.66rem 1rem;
+    font-size: 0.83rem;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    transition: transform 120ms ease, filter 160ms ease, background 160ms ease;
+    white-space: nowrap;
+  }
+  .btn:active { transform: scale(0.975); }
+  .btn:disabled { opacity: 0.45; pointer-events: none; }
+
+  .btn-primary {
+    background-image: linear-gradient(120deg, #34d399, #38bdf8 70%);
+    color: #04121b;
+    box-shadow: 0 14px 34px -16px rgba(52, 211, 153, 0.75);
+  }
+  .btn-primary:hover { filter: brightness(1.07); }
+
+  .btn-ghost {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #dbe7f4;
+  }
+  .btn-ghost:hover { background: rgba(255, 255, 255, 0.09); }
+
+  .btn-danger { background: rgba(251, 113, 133, 0.14); border: 1px solid rgba(251, 113, 133, 0.35); color: #fda4af; }
+
+  .input {
+    width: 100%;
+    border-radius: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(3, 8, 16, 0.55);
+    padding: 0.7rem 0.9rem;
+    font-size: 0.9rem;
+    color: #e8eef7;
+    outline: none;
+    transition: border-color 140ms ease, box-shadow 140ms ease;
+  }
+  .input::placeholder { color: #5f748e; }
+  .input:focus { border-color: rgba(52, 211, 153, 0.55); box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.12); }
+
+  .label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #7f93ac;
+    margin-bottom: 0.4rem;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.35rem 0.7rem;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: #b9c9dc;
+    transition: all 140ms ease;
+  }
+  .chip:hover { border-color: rgba(255, 255, 255, 0.2); color: #eef5ff; }
+  .chip-on {
+    border-color: rgba(52, 211, 153, 0.5);
+    background: rgba(52, 211, 153, 0.14);
+    color: #a7f3d8;
+    box-shadow: inset 0 0 0 1px rgba(52, 211, 153, 0.12);
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.09) 37%, rgba(255,255,255,0.04) 63%);
+    background-size: 400px 100%;
+    animation: shimmer 1.6s linear infinite;
+  }
+}
+
+@keyframes shimmer { 0% { background-position: -400px 0; } 100% { background-position: 400px 0; } }
+
+.sheet-backdrop { background: rgba(3, 7, 13, 0.72); backdrop-filter: blur(6px); }
+
+.text-balance { text-wrap: balance; }
+
+@media (max-width: 380px) {
+  .btn { padding: 0.6rem 0.8rem; font-size: 0.79rem; }
+}
